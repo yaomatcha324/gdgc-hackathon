@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrustChain - Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <h1>Join TrustChain</h1>
+      <p>Create your post-impact identity.</p>
+
+      <label for="username">Name</label>
+      <input id="username" type="text" placeholder="Enter your name" />
+
+      <label for="use">Role</label>
+      <select id="use">
+        <option value="Personal">Peronal</option>
+        <option value="Professional">Professional</option>
+      </select>
+
+      <button id="joinButton">Join</button>
+
+      <p id="message"></p>
+    </section>
+  </main>
+
+  <script>
+    const API_BASE = "http://localhost:8000";
+
+    const joinButton = document.getElementById("joinButton");
+    const message = document.getElementById("message");
+
+    joinButton.addEventListener("click", async () => {
+      const username = document.getElementById("username").value.trim();
+      const role = document.getElementById("role").value;
+
+      if (!username) {
+        message.textContent = "Please enter your name.";
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_BASE}/signup`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            username: username,
+            role: role,
+            public_key: "mock_public_key"
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error("Signup failed");
+        }
+
+        const user = await response.json();
+
+        localStorage.setItem("currentUserId", user.id);
+
+        window.location.href = `profile.html?id=${user.id}`;
+      } catch (error) {
+        console.error(error);
+        message.textContent = "Could not join TrustChain.";
+      }
+    });
+  </script>
+</body>
+</html>
