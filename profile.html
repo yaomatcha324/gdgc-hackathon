@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrustChain - Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="page">
+    <section class="card">
+      <h1 id="username">Loading...</h1>
+
+      <p>
+        <strong>Role:</strong>
+        <span id="role">Loading...</span>
+      </p>
+
+      <p>
+        <strong>Confidence Score:</strong>
+        <span id="confidenceScore">0</span>
+      </p>
+
+      <p>
+        <strong>Vouches:</strong>
+        <span id="vouchCount">0</span>
+      </p>
+
+      <div class="qr-box">
+        <p class="qr-placeholder">QR Code</p>
+        <p class="qr-small">Profile ID: <span id="profileId">1</span></p>
+      </div>
+
+      <button id="scanButton">Go to Scan Page</button>
+      <button id="backButton" class="secondary-button">Back to Join</button>
+    </section>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get("id") || "1";
+
+    const username = localStorage.getItem("currentUsername") || "Mock User";
+    const role = localStorage.getItem("currentRole") || "Citizen";
+
+    document.getElementById("username").textContent = username;
+    document.getElementById("role").textContent = role;
+    document.getElementById("confidenceScore").textContent = "0";
+    document.getElementById("vouchCount").textContent = "0";
+    document.getElementById("profileId").textContent = userId;
+
+    document.getElementById("scanButton").addEventListener("click", () => {
+      window.location.href = "scan.html";
+    });
+
+    document.getElementById("backButton").addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
