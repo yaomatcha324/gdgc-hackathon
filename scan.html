@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLACKOUT - Scan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
+<body>
+  <main class="login-page">
+    <section class="login-panel">
+      <h1 class="logo">
+        <span>Scan and</span><span class="green">VOUCH</span>
+      </h1>
+
+      <h2 class="page-title">SCAN other person's QR code</h2>
+
+      <div class="field-group">
+        <label for="targetId">PROFILE ID</label>
+        <input id="targetId" type="text" placeholder="Example: 1" />
+      </div>
+
+      <button id="loadButton" class="signin-button">LOAD</button>
+
+      <div id="profileCard" class="scan-result hidden">
+        <h2 id="scannedName">Unknown</h2>
+
+        <p>
+          <strong>Role:</strong>
+          <span id="scannedRole">Unknown</span>
+        </p>
+
+
+        <p>
+          <strong>Vouches:</strong>
+          <span id="scannedVouches">0</span>
+        </p>
+
+        <button id="vouchButton" class="vouch-button">
+          I KNOW THIS PERSON
+        </button>
+      </div>
+
+      <button id="backButton" class="secondary-button">BACK TO PROFILE</button>
+
+      <p id="message"></p>
+    </section>
+  </main>
+
+  <script>
+    // Change this to true when backend is ready
+    const USE_BACKEND = false;
+    const API_BASE = "http://localhost:8000";
+
+    const targetIdInput = document.getElementById("targetId");
+    const loadButton = document.getElementById("loadButton");
+    const vouchButton = document.getElementById("vouchButton");
+    const backButton = document.getElementById("backButton");
+    const message = document.getElementById("message");
+
+    const profileCard = document.getElementById("profileCard");
+    const scannedName = document.getElementById("scannedName");
+    const scannedRole = document.getElementById("scannedRole");
+    const scannedScore = document.getElementById("scannedScore");
+    const scannedVouches = document.getElementById("scannedVouches");
+
+    let currentScannedUserId = null;
+    let currentScore = 0;
+    let currentVouchCount = 0;
+
+    loadButton.addEventListener("click", async () => {
+      const targetId = targetIdInput.value.trim();
+
+      if (!targetId) {
+        message.textContent = "Please enter a profile ID.";
+        return;
+      }
+
+      currentScannedUserId = targetId;
+      message.textContent = "";
+
+      if (!USE_BACKEND) {
+        // Mock version before backend is ready
+        scannedName.textContent = "Mock Survivor #" + targetId;
+        scannedRole.textContent = "Doctor";
+        currentScore = 30;
+        currentVouchCount = 3;
+
+        scannedScore.textContent = currentScore;
+        scannedVouches.textContent = currentVouchCount;
+
+        profileCard.classList.remove("hidden");
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_BASE}/users/${targetId}`);
+
+        if (!response.ok) {
+          throw new Error("User not found");
+        }
+
+        const user = await response.json();
+
+        scannedName.textContent = user.username;
+        scannedRole.textContent = user.role;
+        currentScore = user.confidence_score || 0;
+        scannedScore.textContent = currentScore;
+
+        const vouchResponse = await fetch(`${API_BASE}/users/${targetId}/vouches`);
+
+        if (vouchResponse.ok) {
+          const vouchData = await vouchResponse.json();
+          currentVouchCount = vouchData.vouches.length;
+          scannedVouches.textContent = currentVouchCount;
+        }
+
+        profileCard.classList.remove("hidden");
+      } catch (error) {
+        console.error(error);
+        message.textContent = "Could not load this profile.";
+      }
+    });
+
+    vouchButton.addEventListener("click", async () => {
+      const voucherId = localStorage.getItem("currentUserId");
+
+      if (!voucherId) {
+        message.textContent = "No current user found. Please sign in first.";
+        return;
+      }
+
+      if (!currentScannedUserId) {
+        message.textContent = "Please load a profile first.";
+        return;
+      }
+
+      if (voucherId === currentScannedUserId) {
+        message.textContent = "You cannot vouch for yourself.";
+        return;
+      }
+
+      if (!USE_BACKEND) {
+        // Mock vouch update
+        currentScore += 10;
+        currentVouchCount += 1;
+
+        scannedScore.textContent = currentScore;
+        scannedVouches.textContent = currentVouchCount;
+
+        message.textContent = "Vouch added successfully.";
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_BASE}/vouch`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            voucher_id: Number(voucherId),
+            vouchee_id: Number(currentScannedUserId),
+            signature: "mock_signature"
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error("Vouch failed");
+        }
+
+        const result = await response.json();
+
+        scannedScore.textContent = result.new_confidence_score;
+        currentVouchCount += 1;
+        scannedVouches.textContent = currentVouchCount;
+
+        message.textContent = "Vouch added successfully.";
+      } catch (error) {
+        console.error(error);
+        message.textContent = "Could not vouch for this person.";
+      }
+    });
+
+    backButton.addEventListener("click", () => {
+      const currentUserId = localStorage.getItem("currentUserId") || "1";
+      window.location.href = `profile.html?id=${currentUserId}`;
+    });
+  </script>
+</body>
+</html>
