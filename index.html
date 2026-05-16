@@ -3,61 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TRUSTCHAIN - Sign Up</title>
+
+  <title>TRUSTCHAIN - Sign In</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 
-<body>
+<body data-page="login">
   <main class="login-page">
     <section class="login-panel">
       <h1 class="logo">
         <span>TRUST</span><span class="green">CHAIN</span>
       </h1>
 
-      <h2 class="page-title">Create Account</h2>
+      <h2 class="page-title">Sign In</h2>
 
-      <form id="signupForm">
+      <form id="loginForm">
         <div class="field-group">
-          <label for="username">USERNAME</label>
-          <input id="username" type="text" autocomplete="username" required />
+          <label for="loginUsername">USERNAME</label>
+          <input
+            id="loginUsername"
+            type="text"
+            autocomplete="username"
+            required
+          />
         </div>
 
-        <div class="field-group">
-          <label for="password">PASSWORD</label>
-          <input id="password" type="password" autocomplete="new-password" required />
+        <div class="field-group password-row">
+          <div class="password-label-line">
+            <label for="loginPassword">PASSWORD</label>
+            <a href="#" class="small-link" id="forgotPasswordLink">forget password?</a>
+          </div>
+
+          <input
+            id="loginPassword"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
         </div>
 
-        <button type="submit" class="login-btn">SIGN UP</button>
+        <a href="signup.html" class="create-link">create new account?</a>
 
-        <a href="index.html" class="create-link">already have an account?</a>
+        <button type="submit" class="signin-button">SIGN IN</button>
+
+        <p id="message"></p>
       </form>
     </section>
   </main>
-
-  <script>
-    const signupForm = document.getElementById("signupForm");
-
-    signupForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value;
-
-      if (!username || !password) {
-        alert("Please enter username and password.");
-        return;
-      }
-
-      const user = {
-        username: username,
-        password: password
-      };
-
-      localStorage.setItem("trustchainUser", JSON.stringify(user));
-
-      alert("Account created successfully!");
-      window.location.href = "index.html";
-    });
-  </script>
 </body>
 </html>
