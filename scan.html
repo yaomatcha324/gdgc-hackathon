@@ -3,76 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrustChain - Scan QR</title>
+
+  <title>TRUSTCHAIN - Scan QR</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
 
   <!-- QR scanner library -->
   <script src="https://unpkg.com/html5-qrcode"></script>
+
+  <script src="script.js" defer></script>
 </head>
 
-<body>
+<body data-page="scan">
   <main class="page">
     <section class="card">
       <h1>Scan QR Code</h1>
 
-      <p id="scanMessage">Point your camera at a TrustChain QR code.</p>
+      <p id="scanMessage">
+        Point your camera at a TrustChain QR code.
+      </p>
 
-      <div id="reader" style="width: 300px;"></div>
+      <div id="reader"></div>
 
-      <button id="backToProfile" class="secondary-button">Back to Profile</button>
+      <button id="backToProfile" class="secondary-button">
+        BACK TO PROFILE
+      </button>
     </section>
   </main>
-
-  <script>
-    const scanMessage = document.getElementById("scanMessage");
-
-    const html5QrCode = new Html5Qrcode("reader");
-
-    function onScanSuccess(decodedText) {
-      scanMessage.textContent = "QR code scanned successfully!";
-
-      html5QrCode.stop().then(() => {
-        // If QR contains something like profile.html?id=1
-        if (decodedText.includes("profile.html?id=")) {
-          window.location.href = decodedText;
-        } else {
-          scanMessage.textContent = "Invalid TrustChain QR code.";
-        }
-      }).catch((error) => {
-        console.error("Failed to stop scanner:", error);
-      });
-    }
-
-    function onScanFailure(error) {
-      // This runs constantly while scanning, so don't console.log every time.
-    }
-
-    Html5Qrcode.getCameras().then((cameras) => {
-      if (cameras && cameras.length > 0) {
-        html5QrCode.start(
-          { facingMode: "environment" },
-          {
-            fps: 10,
-            qrbox: {
-              width: 250,
-              height: 250
-            }
-          },
-          onScanSuccess,
-          onScanFailure
-        );
-      } else {
-        scanMessage.textContent = "No camera found.";
-      }
-    }).catch((error) => {
-      console.error(error);
-      scanMessage.textContent = "Camera access failed. Please allow camera permission.";
-    });
-
-    document.getElementById("backToProfile").addEventListener("click", () => {
-      const currentUserId = localStorage.getItem("currentUserId") || "1";
-      window.location.href = `profile.html?id=${currentUserId}`;
-    });
-  </script>
 </body>
 </html>
