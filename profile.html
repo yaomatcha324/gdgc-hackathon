@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TrustChain - Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -32,11 +35,22 @@
         <p class="qr-small">Profile ID: <span id="profileId">1</span></p>
       </div>
 
+      <section class="trust-graph-panel" aria-labelledby="trustGraphHeading">
+        <div class="trust-graph-header">
+          <h2 id="trustGraphHeading">Trust graph</h2>
+          <p class="trust-graph-legend">
+            Each dot is a person (larger = higher trust index). Lines are vouches — hover an edge to see who attests which role.
+          </p>
+        </div>
+        <div id="trustGraphMount" class="trust-graph-mount"></div>
+      </section>
+
       <button id="scanButton">Go to Scan Page</button>
       <button id="backButton" class="secondary-button">Back to Join</button>
     </section>
   </main>
 
+  <script src="trust-graph.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const userId = params.get("id") || "1";
@@ -46,9 +60,15 @@
 
     document.getElementById("username").textContent = username;
     document.getElementById("role").textContent = role;
-    document.getElementById("confidenceScore").textContent = "0";
-    document.getElementById("vouchCount").textContent = "0";
+
+    const agg = TrustGraph.aggregateConfidence(userId);
+    document.getElementById("confidenceScore").textContent = String(agg.score);
+    document.getElementById("vouchCount").textContent = String(agg.count);
     document.getElementById("profileId").textContent = userId;
+
+    TrustGraph.renderTrustGraph(document.getElementById("trustGraphMount"), userId, {
+      centerPatch: { displayName: username, role: role },
+    });
 
     document.getElementById("scanButton").addEventListener("click", () => {
       window.location.href = "scan.html";
