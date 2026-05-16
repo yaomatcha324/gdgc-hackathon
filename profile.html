@@ -3,21 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrustChain - Profile</title>
+
+  <title>TRUSTCHAIN - Profile</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
+
+  <!-- QR code generator -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script src="trust-graph.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
-<body>
+<body data-page="profile">
   <main class="page">
     <section class="card">
-      <h1 id="username">Loading...</h1>
+      <h1 id="profileUsername">Loading...</h1>
 
       <p>
         <strong>Role:</strong>
-        <span id="role">Loading...</span>
+        <span id="profileRole">Loading...</span>
       </p>
 
       <p>
@@ -31,52 +40,32 @@
       </p>
 
       <div class="qr-box">
-        <p class="qr-placeholder">QR Code</p>
-        <p class="qr-small">Profile ID: <span id="profileId">1</span></p>
+        <div id="qrCode"></div>
+        <p class="qr-small">
+          Profile ID:
+          <span id="profileId">Loading...</span>
+        </p>
       </div>
 
       <section class="trust-graph-panel" aria-labelledby="trustGraphHeading">
         <div class="trust-graph-header">
-          <h2 id="trustGraphHeading">Trust graph</h2>
+          <h2 id="trustGraphHeading">Trust Graph</h2>
+
           <p class="trust-graph-legend">
-            Each dot is a person (larger = higher trust index). Lines are vouches — hover an edge to see who attests which role.
+            Each dot is a person. Lines are vouches. Larger dots mean higher trust.
           </p>
         </div>
+
         <div id="trustGraphMount" class="trust-graph-mount"></div>
       </section>
 
-      <button id="scanButton">Go to Scan Page</button>
-      <button id="backButton" class="secondary-button">Back to Join</button>
+      <div class="button-row">
+        <button id="scanButton">SCAN QR</button>
+        <button id="logoutButton" class="secondary-button">LOG OUT</button>
+      </div>
+
+      <p id="message"></p>
     </section>
   </main>
-
-  <script src="trust-graph.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const userId = params.get("id") || "1";
-
-    const username = localStorage.getItem("currentUsername") || "Mock User";
-    const role = localStorage.getItem("currentRole") || "Citizen";
-
-    document.getElementById("username").textContent = username;
-    document.getElementById("role").textContent = role;
-
-    const agg = TrustGraph.aggregateConfidence(userId);
-    document.getElementById("confidenceScore").textContent = String(agg.score);
-    document.getElementById("vouchCount").textContent = String(agg.count);
-    document.getElementById("profileId").textContent = userId;
-
-    TrustGraph.renderTrustGraph(document.getElementById("trustGraphMount"), userId, {
-      centerPatch: { displayName: username, role: role },
-    });
-
-    document.getElementById("scanButton").addEventListener("click", () => {
-      window.location.href = "scan.html";
-    });
-
-    document.getElementById("backButton").addEventListener("click", () => {
-      window.location.href = "index.html";
-    });
-  </script>
 </body>
 </html>
