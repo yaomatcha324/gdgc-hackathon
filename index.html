@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLACKOUT - Sign In</title>
+  <title>TRUSTCHAIN - Sign In</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -11,7 +11,7 @@
   <main class="login-page">
     <section class="login-panel">
       <h1 class="logo">
-        <span>BLACK</span><span class="green">OUT</span>
+        <span>TRUST</span><span class="green">CHAIN</span>
       </h1>
 
       <form id="loginForm">
@@ -28,7 +28,7 @@
           <input id="password" type="password" autocomplete="current-password" />
         </div>
 
-        <a href="#" class="create-link">create new account?</a>
+        <a href="signup.html" class="create-link">create new account?</a>
 
         <button type="submit" class="signin-button">SIGN IN</button>
 
@@ -57,18 +57,22 @@
         return;
       }
 
-      // Mock password check before backend login is ready
-      if (password !== "blackout") {
-        message.textContent = "Wrong password.";
+      const savedUser = JSON.parse(localStorage.getItem("trustchainUser"));
+
+      if (!savedUser) {
+        message.textContent = "No account found. Please sign up first.";
         return;
       }
 
-      // Temporary mock login
+      if (username !== savedUser.username || password !== savedUser.password) {
+        message.textContent = "Wrong username or password.";
+        return;
+      }
+
       localStorage.setItem("currentUserId", "1");
       localStorage.setItem("currentUsername", username);
       localStorage.setItem("currentRole", "Citizen");
 
-      // This line jumps to another page
       window.location.href = "profile.html?id=1";
     });
   </script>
