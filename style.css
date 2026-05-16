@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
 
 * {
   box-sizing: border-box;
@@ -132,4 +132,79 @@ input:focus {
   color: #ff4f6d;
   font-size: 22px;
   text-align: center;
+}
+
+
+@media (max-width: 600px) {
+  .login-page {
+    align-items: flex-start;
+    padding: 28px 18px;
+  }
+
+  .login-panel {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .logo {
+    font-size: 54px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .field-group {
+    margin-bottom: 24px;
+  }
+
+  label {
+    font-size: 28px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+  }
+
+  label span {
+    margin: 0 10px;
+    font-size: 0.7em;
+  }
+
+  input {
+    height: 58px;
+    font-size: 22px;
+    padding: 8px 12px;
+    border-width: 3px;
+  }
+
+  .password-label-line {
+    display: block;
+  }
+
+  .small-link {
+    display: block;
+    text-align: right;
+    margin-top: -6px;
+    margin-bottom: 4px;
+    font-size: 20px;
+  }
+
+  .create-link {
+    font-size: 20px;
+    text-align: right;
+    margin-top: -8px;
+    margin-bottom: 16px;
+  }
+
+  .signin-button {
+    height: 70px;
+    font-size: 34px;
+    letter-spacing: 10px;
+  }
+
+  #message {
+    font-size: 18px;
+  }
 }
