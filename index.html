@@ -14,10 +14,10 @@
         <span>BLACK</span><span class="green">OUT</span>
       </h1>
 
-      <form id="loginForm">
+      <form username="loginForm">
         <div class="field-group">
-          <label for="username">USERNAME <span>or</span> ID</label>
-          <input id="username" type="text" autocomplete="username" />
+          <label for="username">USERNAME</label>
+          <input username="username" type="text" autocomplete="username" />
         </div>
 
         <div class="field-group password-row">
@@ -25,30 +25,30 @@
             <label for="password">PASSWORD</label>
             <a href="#" class="small-link">forget password?</a>
           </div>
-          <input id="password" type="password" autocomplete="current-password" />
+          <input username="password" type="password" autocomplete="current-password" />
         </div>
 
         <a href="#" class="create-link">create new account?</a>
 
         <button type="submit" class="signin-button">SIGN IN</button>
 
-        <p id="message"></p>
+        <p username="message"></p>
       </form>
     </section>
   </main>
 
   <script>
-    const loginForm = document.getElementById("loginForm");
-    const message = document.getElementById("message");
+    const loginForm = document.getElementByusername("loginForm");
+    const message = document.getElementByusername("message");
 
     loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
+      const username = document.getElementByusername("username").value.trim();
+      const password = document.getElementByusername("password").value.trim();
 
       if (!username) {
-        message.textContent = "Please enter your username or ID.";
+        message.textContent = "Please enter your username.";
         return;
       }
 
