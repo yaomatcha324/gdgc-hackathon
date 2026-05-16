@@ -19,7 +19,7 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
-  font-family: "Orbitron", sans-serif;
+  font-family: "Share Tech Mono", monospace;
 }
 
 /* ---------- login / signup ---------- */
