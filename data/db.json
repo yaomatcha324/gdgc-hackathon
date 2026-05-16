@@ -1,0 +1,223 @@
+{
+  "users": {
+    "dqfYDPhA": {
+      "id": "dqfYDPhA",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "_FVldumo": {
+      "id": "_FVldumo",
+      "name": "你好",
+      "photoUrl": "https://translate.google.com/?sl=en&tl=zh-CN&text=%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E5%AE%9E%E7%8E%B0%E2%80%9C%E7%8E%B0%E5%9C%BA%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%8C%E5%88%AB%E4%BA%BA%E6%89%AB%E7%A0%81%E5%90%8E%E8%87%AA%E5%8A%A8%E7%BB%99%E6%9F%90%E4%BA%BA%EF%BC%88%E6%88%96%E6%9F%90%E7%89%A9%EF%BC%89%E5%8A%A0%E6%A0%87%E7%AD%BE%EF%BC%88Tag%EF%BC%89%E2%80%9D%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%8C%E8%BF%99%E5%85%B6%E5%AE%9E%E6%98%AF%E4%B8%80%E4%B8%AA%E9%9D%9E%E5%B8%B8%E7%BB%8F%E5%85%B8%E7%9A%84%20**FastAPI%20%2B%20%E6%95%B0%E6%8D%AE%E5%BA%93**%20%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%82%0A%0A%E8%BF%99%E9%87%8C%E7%9A%84%E9%80%BB%E8%BE%91%E4%B8%8D%E6%98%AF%E8%AE%A9%E4%BA%8C%E7%BB%B4%E7%A0%81%E2%80%9C%E6%99%BA%E8%83%BD%E2%80%9D%EF%BC%8C%E8%80%8C%E6%98%AF%E8%AE%A9%E4%BA%8C%E7%BB%B4%E7%A0%81%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA**%E8%A7%A6%E5%8F%91%E5%99%A8**%EF%BC%8C%E5%91%8A%E8%AF%89%E4%BD%A0%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E2%80%9C%E6%9C%89%E4%BA%BA%E6%89%AB%E4%BA%86%20A%EF%BC%8C%E8%AF%B7%E7%BB%99%20A%20%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%20B%E3%80%82%E2%80%9D%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%0A%0A%23%23%23%20%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E7%94%9F%E6%88%90%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%20URL%0A%0A%E4%BD%A0%E4%B8%8D%E8%83%BD%E5%8F%AA%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%BA%AF%E6%96%87%E6%9C%AC%E4%BA%8C%E7%BB%B4%E7%A0%81%E3%80%82%E4%BD%A0%E9%9C%80%E8%A6%81%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E6%8C%87%E5%90%91%E4%BD%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%20**URL**%EF%BC%8C%E5%B9%B6%E5%9C%A8%20URL%20%E9%87%8C%E9%9D%A2%E5%B8%A6%E4%B8%8A%E8%BA%AB%E4%BB%BD%E4%BF%A1%E6%81%AF%EF%BC%88ID%EF%BC%89%E3%80%82%0A%0A*%20**URL%20%E6%A0%BC%E5%BC%8F%E7%A4%BA%E4%BE%8B%EF%BC%9A**%20%60https%3A%2F%2Fyour-app.com%2Fscan%3Fuser_id%3D123%26tag%3DFriend%60%0A*%20**%E5%B7%A5%E5%85%B7%E5%BB%BA%E8%AE%AE%EF%BC%9A**%20%E5%9C%A8%20Python%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20%60qrcode%60%20%E5%BA%93%E3%80%82%0A%0A%60%60%60python%0Aimport%20qrcode%0A%0A%23%20%E8%BF%99%E9%87%8C%E7%9A%84%20URL%20%E6%98%AF%E4%BD%A0%20FastAPI%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%9C%B0%E5%9D%80%0Adata%20%3D%20%22https%3A%2F%2Fyour-api-link.com%2Fadd_tag%3Ftarget_id%3Duser888%26tag_name%3DConference2026%22%0Aqr%20%3D%20qrcode.make(data)%0Aqr.save(%22temporary_qr.png%22)%0A%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E7%94%A8%20FastAPI%20%E6%8E%A5%E6%94%B6%E6%89%AB%E7%A0%81%E8%AF%B7%E6%B1%82%0A%0A%E5%BD%93%E5%88%AB%E4%BA%BA%E7%9A%84%E6%89%8B%E6%9C%BA%E6%89%AB%E6%8F%8F%E8%BF%99%E4%B8%AA%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%97%B6%EF%BC%8C%E4%BB%96%E4%BB%AC%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BC%9A%E8%87%AA%E5%8A%A8%E8%AE%BF%E9%97%AE%E9%82%A3%E4%B8%AA%20URL%E3%80%82%E4%BD%A0%E7%9A%84%20FastAPI%20%E5%90%8E%E7%AB%AF%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E8%BF%99%E4%B8%AA%E8%AF%B7%E6%B1%82%EF%BC%9A%0A%0A%60%60%60python%0Afrom%20fastapi%20import%20FastAPI%2C%20BackgroundTasks%0A%0Aapp%20%3D%20FastAPI()%0A%0A%40app.get(%22%2Fadd_tag%22)%0Aasync%20def%20add_tag(target_id%3A%20str%2C%20tag_name%3A%20str)%3A%0A%20%20%20%20%23%201.%20%E8%BF%99%E9%87%8C%E7%BC%96%E5%86%99%E6%95%B0%E6%8D%AE%E5%BA%93%E9%80%BB%E8%BE%91%EF%BC%9A%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E6%89%BE%E5%88%B0%20target_id%EF%BC%8C%E5%B9%B6%E5%8A%A0%E4%B8%8A%20tag_name%0A%20%20%20%20%23%202.%20%E6%AF%94%E5%A6%82%EF%BC%9Adb.users.update(target_id%2C%20%7B%22%24push%22%3A%20%7B%22tags%22%3A%20tag_name%7D%7D)%0A%20%20%20%20%0A%20%20%20%20return%20%7B%22message%22%3A%20f%22%E6%88%90%E5%8A%9F%E7%BB%99%E7%94%A8%E6%88%B7%20%7Btarget_id%7D%20%E6%B7%BB%E5%8A%A0%E4%BA%86%E6%A0%87%E7%AD%BE%EF%BC%9A%7Btag_name%7D%EF%BC%81%22%7D%0A%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AE%83%E2%80%9C%E7%9F%AD%E6%9A%82%E2%80%9D%E4%B8%94%E2%80%9C%E5%AE%89%E5%85%A8%E2%80%9D%EF%BC%9F%0A%0A%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%9B%B4%E6%8E%A5%E7%94%A8%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E",
+      "tags": [
+        "工程师",
+        "医生"
+      ]
+    },
+    "srPAY_pB": {
+      "id": "srPAY_pB",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "KE452tgt": {
+      "id": "KE452tgt",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "r6B_tu--": {
+      "id": "r6B_tu--",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester",
+      "password": "pass1234",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "peYACNsH": {
+      "id": "peYACNsH",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester_1778898078034",
+      "password": "pass1234",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "rKu1fLfM": {
+      "id": "rKu1fLfM",
+      "name": "Audi",
+      "photoUrl": "https://translate.google.com/?sl=en&tl=zh-CN&text=%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E5%AE%9E%E7%8E%B0%E2%80%9C%E7%8E%B0%E5%9C%BA%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%8C%E5%88%AB%E4%BA%BA%E6%89%AB%E7%A0%81%E5%90%8E%E8%87%AA%E5%8A%A8%E7%BB%99%E6%9F%90%E4%BA%BA%EF%BC%88%E6%88%96%E6%9F%90%E7%89%A9%EF%BC%89%E5%8A%A0%E6%A0%87%E7%AD%BE%EF%BC%88Tag%EF%BC%89%E2%80%9D%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%8C%E8%BF%99%E5%85%B6%E5%AE%9E%E6%98%AF%E4%B8%80%E4%B8%AA%E9%9D%9E%E5%B8%B8%E7%BB%8F%E5%85%B8%E7%9A%84%20**FastAPI%20%2B%20%E6%95%B0%E6%8D%AE%E5%BA%93**%20%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%82%0A%0A%E8%BF%99%E9%87%8C%E7%9A%84%E9%80%BB%E8%BE%91%E4%B8%8D%E6%98%AF%E8%AE%A9%E4%BA%8C%E7%BB%B4%E7%A0%81%E2%80%9C%E6%99%BA%E8%83%BD%E2%80%9D%EF%BC%8C%E8%80%8C%E6%98%AF%E8%AE%A9%E4%BA%8C%E7%BB%B4%E7%A0%81%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA**%E8%A7%A6%E5%8F%91%E5%99%A8**%EF%BC%8C%E5%91%8A%E8%AF%89%E4%BD%A0%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E2%80%9C%E6%9C%89%E4%BA%BA%E6%89%AB%E4%BA%86%20A%EF%BC%8C%E8%AF%B7%E7%BB%99%20A%20%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%20B%E3%80%82%E2%80%9D%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%0A%0A%23%23%23%20%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E7%94%9F%E6%88%90%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%20URL%0A%0A%E4%BD%A0%E4%B8%8D%E8%83%BD%E5%8F%AA%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%BA%AF%E6%96%87%E6%9C%AC%E4%BA%8C%E7%BB%B4%E7%A0%81%E3%80%82%E4%BD%A0%E9%9C%80%E8%A6%81%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E6%8C%87%E5%90%91%E4%BD%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%20**URL**%EF%BC%8C%E5%B9%B6%E5%9C%A8%20URL%20%E9%87%8C%E9%9D%A2%E5%B8%A6%E4%B8%8A%E8%BA%AB%E4%BB%BD%E4%BF%A1%E6%81%AF%EF%BC%88ID%EF%BC%89%E3%80%82%0A%0A*%20**URL%20%E6%A0%BC%E5%BC%8F%E7%A4%BA%E4%BE%8B%EF%BC%9A**%20%60https%3A%2F%2Fyour-app.com%2Fscan%3Fuser_id%3D123%26tag%3DFriend%60%0A*%20**%E5%B7%A5%E5%85%B7%E5%BB%BA%E8%AE%AE%EF%BC%9A**%20%E5%9C%A8%20Python%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20%60qrcode%60%20%E5%BA%93%E3%80%82%0A%0A%60%60%60python%0Aimport%20qrcode%0A%0A%23%20%E8%BF%99%E9%87%8C%E7%9A%84%20URL%20%E6%98%AF%E4%BD%A0%20FastAPI%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%9C%B0%E5%9D%80%0Adata%20%3D%20%22https%3A%2F%2Fyour-api-link.com%2Fadd_tag%3Ftarget_id%3Duser888%26tag_name%3DConference2026%22%0Aqr%20%3D%20qrcode.make(data)%0Aqr.save(%22temporary_qr.png%22)%0A%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E7%94%A8%20FastAPI%20%E6%8E%A5%E6%94%B6%E6%89%AB%E7%A0%81%E8%AF%B7%E6%B1%82%0A%0A%E5%BD%93%E5%88%AB%E4%BA%BA%E7%9A%84%E6%89%8B%E6%9C%BA%E6%89%AB%E6%8F%8F%E8%BF%99%E4%B8%AA%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%97%B6%EF%BC%8C%E4%BB%96%E4%BB%AC%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BC%9A%E8%87%AA%E5%8A%A8%E8%AE%BF%E9%97%AE%E9%82%A3%E4%B8%AA%20URL%E3%80%82%E4%BD%A0%E7%9A%84%20FastAPI%20%E5%90%8E%E7%AB%AF%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E8%BF%99%E4%B8%AA%E8%AF%B7%E6%B1%82%EF%BC%9A%0A%0A%60%60%60python%0Afrom%20fastapi%20import%20FastAPI%2C%20BackgroundTasks%0A%0Aapp%20%3D%20FastAPI()%0A%0A%40app.get(%22%2Fadd_tag%22)%0Aasync%20def%20add_tag(target_id%3A%20str%2C%20tag_name%3A%20str)%3A%0A%20%20%20%20%23%201.%20%E8%BF%99%E9%87%8C%E7%BC%96%E5%86%99%E6%95%B0%E6%8D%AE%E5%BA%93%E9%80%BB%E8%BE%91%EF%BC%9A%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E6%89%BE%E5%88%B0%20target_id%EF%BC%8C%E5%B9%B6%E5%8A%A0%E4%B8%8A%20tag_name%0A%20%20%20%20%23%202.%20%E6%AF%94%E5%A6%82%EF%BC%9Adb.users.update(target_id%2C%20%7B%22%24push%22%3A%20%7B%22tags%22%3A%20tag_name%7D%7D)%0A%20%20%20%20%0A%20%20%20%20return%20%7B%22message%22%3A%20f%22%E6%88%90%E5%8A%9F%E7%BB%99%E7%94%A8%E6%88%B7%20%7Btarget_id%7D%20%E6%B7%BB%E5%8A%A0%E4%BA%86%E6%A0%87%E7%AD%BE%EF%BC%9A%7Btag_name%7D%EF%BC%81%22%7D%0A%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AE%83%E2%80%9C%E7%9F%AD%E6%9A%82%E2%80%9D%E4%B8%94%E2%80%9C%E5%AE%89%E5%85%A8%E2%80%9D%EF%BC%9F%0A%0A%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%9B%B4%E6%8E%A5%E7%94%A8%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E",
+      "username": "wudi1096",
+      "password": "123456",
+      "tags": [
+        "老师",
+        "医生",
+        "Nothing"
+      ]
+    },
+    "gPwVDmQL": {
+      "id": "gPwVDmQL",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester_1778898562635",
+      "password": "pass1234",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "7h4CXRh3": {
+      "id": "7h4CXRh3",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester_1778898774864",
+      "password": "pass1234",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "8JrSN5Gu": {
+      "id": "8JrSN5Gu",
+      "name": "poi",
+      "photoUrl": "https://translate.google.com/?sl=en&tl=zh-CN&text=%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E5%AE%9E%E7%8E%B0%E2%80%9C%E7%8E%B0%E5%9C%BA%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%8C%E5%88%AB%E4%BA%BA%E6%89%AB%E7%A0%81%E5%90%8E%E8%87%AA%E5%8A%A8%E7%BB%99%E6%9F%90%E4%BA%BA%EF%BC%88%E6%88%96%E6%9F%90%E7%89%A9%EF%BC%89%E5%8A%A0%E6%A0%87%E7%AD%BE%EF%BC%88Tag%EF%BC%89%E2%80%9D%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%8C%E8%BF%99%E5%85%B6%E5%AE%9E%E6%98%AF%E4%B8%80%E4%B8%AA%E9%9D%9E%E5%B8%B8%E7%BB%8F%E5%85%B8%E7%9A%84%20**FastAPI%20%2B%20%E6%95%B0%E6%8D%AE%E5%BA%93**%20%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%82%0A%0A%E8%BF%99%E9%87%8C%E7%9A%84%E9%80%BB%E8%BE%91%E4%B8%8D%E6%98%AF%E8%AE%A9%E4%BA%8C%E7%BB%B4%E7%A0%81%E2%80%9C%E6%99%BA%E8%83%BD%E2%80%9D%EF%BC%8C%E8%80%8C%E6%98%AF%E8%AE%A9%E4%BA%8C%E7%BB%B4%E7%A0%81%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA**%E8%A7%A6%E5%8F%91%E5%99%A8**%EF%BC%8C%E5%91%8A%E8%AF%89%E4%BD%A0%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E2%80%9C%E6%9C%89%E4%BA%BA%E6%89%AB%E4%BA%86%20A%EF%BC%8C%E8%AF%B7%E7%BB%99%20A%20%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%20B%E3%80%82%E2%80%9D%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%0A%0A%23%23%23%20%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E7%94%9F%E6%88%90%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%20URL%0A%0A%E4%BD%A0%E4%B8%8D%E8%83%BD%E5%8F%AA%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%BA%AF%E6%96%87%E6%9C%AC%E4%BA%8C%E7%BB%B4%E7%A0%81%E3%80%82%E4%BD%A0%E9%9C%80%E8%A6%81%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E6%8C%87%E5%90%91%E4%BD%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%20**URL**%EF%BC%8C%E5%B9%B6%E5%9C%A8%20URL%20%E9%87%8C%E9%9D%A2%E5%B8%A6%E4%B8%8A%E8%BA%AB%E4%BB%BD%E4%BF%A1%E6%81%AF%EF%BC%88ID%EF%BC%89%E3%80%82%0A%0A*%20**URL%20%E6%A0%BC%E5%BC%8F%E7%A4%BA%E4%BE%8B%EF%BC%9A**%20%60https%3A%2F%2Fyour-app.com%2Fscan%3Fuser_id%3D123%26tag%3DFriend%60%0A*%20**%E5%B7%A5%E5%85%B7%E5%BB%BA%E8%AE%AE%EF%BC%9A**%20%E5%9C%A8%20Python%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20%60qrcode%60%20%E5%BA%93%E3%80%82%0A%0A%60%60%60python%0Aimport%20qrcode%0A%0A%23%20%E8%BF%99%E9%87%8C%E7%9A%84%20URL%20%E6%98%AF%E4%BD%A0%20FastAPI%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%9C%B0%E5%9D%80%0Adata%20%3D%20%22https%3A%2F%2Fyour-api-link.com%2Fadd_tag%3Ftarget_id%3Duser888%26tag_name%3DConference2026%22%0Aqr%20%3D%20qrcode.make(data)%0Aqr.save(%22temporary_qr.png%22)%0A%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E7%94%A8%20FastAPI%20%E6%8E%A5%E6%94%B6%E6%89%AB%E7%A0%81%E8%AF%B7%E6%B1%82%0A%0A%E5%BD%93%E5%88%AB%E4%BA%BA%E7%9A%84%E6%89%8B%E6%9C%BA%E6%89%AB%E6%8F%8F%E8%BF%99%E4%B8%AA%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%97%B6%EF%BC%8C%E4%BB%96%E4%BB%AC%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BC%9A%E8%87%AA%E5%8A%A8%E8%AE%BF%E9%97%AE%E9%82%A3%E4%B8%AA%20URL%E3%80%82%E4%BD%A0%E7%9A%84%20FastAPI%20%E5%90%8E%E7%AB%AF%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E8%BF%99%E4%B8%AA%E8%AF%B7%E6%B1%82%EF%BC%9A%0A%0A%60%60%60python%0Afrom%20fastapi%20import%20FastAPI%2C%20BackgroundTasks%0A%0Aapp%20%3D%20FastAPI()%0A%0A%40app.get(%22%2Fadd_tag%22)%0Aasync%20def%20add_tag(target_id%3A%20str%2C%20tag_name%3A%20str)%3A%0A%20%20%20%20%23%201.%20%E8%BF%99%E9%87%8C%E7%BC%96%E5%86%99%E6%95%B0%E6%8D%AE%E5%BA%93%E9%80%BB%E8%BE%91%EF%BC%9A%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E6%89%BE%E5%88%B0%20target_id%EF%BC%8C%E5%B9%B6%E5%8A%A0%E4%B8%8A%20tag_name%0A%20%20%20%20%23%202.%20%E6%AF%94%E5%A6%82%EF%BC%9Adb.users.update(target_id%2C%20%7B%22%24push%22%3A%20%7B%22tags%22%3A%20tag_name%7D%7D)%0A%20%20%20%20%0A%20%20%20%20return%20%7B%22message%22%3A%20f%22%E6%88%90%E5%8A%9F%E7%BB%99%E7%94%A8%E6%88%B7%20%7Btarget_id%7D%20%E6%B7%BB%E5%8A%A0%E4%BA%86%E6%A0%87%E7%AD%BE%EF%BC%9A%7Btag_name%7D%EF%BC%81%22%7D%0A%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AE%83%E2%80%9C%E7%9F%AD%E6%9A%82%E2%80%9D%E4%B8%94%E2%80%9C%E5%AE%89%E5%85%A8%E2%80%9D%EF%BC%9F%0A%0A%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%9B%B4%E6%8E%A5%E7%94%A8%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E",
+      "username": "wudi1097",
+      "password": "123456",
+      "tags": [
+        "医生",
+        "工程师",
+        "老师",
+        "Nothing",
+        "Teacher",
+        "Engineer",
+        "Doctor"
+      ]
+    },
+    "S9ttq83k": {
+      "id": "S9ttq83k",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester_1778900148704",
+      "password": "pass1234",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "ff53GsiP": {
+      "id": "ff53GsiP",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester_1778900154030",
+      "password": "pass1234",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "cPKLbIy5": {
+      "id": "cPKLbIy5",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester_1778900417938",
+      "password": "pass1234",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "tQNw1-Lu": {
+      "id": "tQNw1-Lu",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester_1778900426796",
+      "password": "pass1234",
+      "tags": [
+        "老师",
+        "医生"
+      ]
+    },
+    "8TsbLKnb": {
+      "id": "8TsbLKnb",
+      "name": "owo",
+      "photoUrl": "https://translate.google.com/?sl=en&tl=zh-CN&text=%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E5%AE%9E%E7%8E%B0%E2%80%9C%E7%8E%B0%E5%9C%BA%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%8C%E5%88%AB%E4%BA%BA%E6%89%AB%E7%A0%81%E5%90%8E%E8%87%AA%E5%8A%A8%E7%BB%99%E6%9F%90%E4%BA%BA%EF%BC%88%E6%88%96%E6%9F%90%E7%89%A9%EF%BC%89%E5%8A%A0%E6%A0%87%E7%AD%BE%EF%BC%88Tag%EF%BC%89%E2%80%9D%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%8C%E8%BF%99%E5%85%B6%E5%AE%9E%E6%98%AF%E4%B8%80%E4%B8%AA%E9%9D%9E%E5%B8%B8%E7%BB%8F%E5%85%B8%E7%9A%84%20**FastAPI%20%2B%20%E6%95%B0%E6%8D%AE%E5%BA%93**%20%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%82%0A%0A%E8%BF%99%E9%87%8C%E7%9A%84%E9%80%BB%E8%BE%91%E4%B8%8D%E6%98%AF%E8%AE%A9%E4%BA%8C%E7%BB%B4%E7%A0%81%E2%80%9C%E6%99%BA%E8%83%BD%E2%80%9D%EF%BC%8C%E8%80%8C%E6%98%AF%E8%AE%A9%E4%BA%8C%E7%BB%B4%E7%A0%81%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA**%E8%A7%A6%E5%8F%91%E5%99%A8**%EF%BC%8C%E5%91%8A%E8%AF%89%E4%BD%A0%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A%E2%80%9C%E6%9C%89%E4%BA%BA%E6%89%AB%E4%BA%86%20A%EF%BC%8C%E8%AF%B7%E7%BB%99%20A%20%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%20B%E3%80%82%E2%80%9D%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88%EF%BC%9A%E4%B8%89%E6%AD%A5%E8%B5%B0%0A%0A%23%23%23%20%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E7%94%9F%E6%88%90%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%20URL%0A%0A%E4%BD%A0%E4%B8%8D%E8%83%BD%E5%8F%AA%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%BA%AF%E6%96%87%E6%9C%AC%E4%BA%8C%E7%BB%B4%E7%A0%81%E3%80%82%E4%BD%A0%E9%9C%80%E8%A6%81%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E6%8C%87%E5%90%91%E4%BD%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%20**URL**%EF%BC%8C%E5%B9%B6%E5%9C%A8%20URL%20%E9%87%8C%E9%9D%A2%E5%B8%A6%E4%B8%8A%E8%BA%AB%E4%BB%BD%E4%BF%A1%E6%81%AF%EF%BC%88ID%EF%BC%89%E3%80%82%0A%0A*%20**URL%20%E6%A0%BC%E5%BC%8F%E7%A4%BA%E4%BE%8B%EF%BC%9A**%20%60https%3A%2F%2Fyour-app.com%2Fscan%3Fuser_id%3D123%26tag%3DFriend%60%0A*%20**%E5%B7%A5%E5%85%B7%E5%BB%BA%E8%AE%AE%EF%BC%9A**%20%E5%9C%A8%20Python%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20%60qrcode%60%20%E5%BA%93%E3%80%82%0A%0A%60%60%60python%0Aimport%20qrcode%0A%0A%23%20%E8%BF%99%E9%87%8C%E7%9A%84%20URL%20%E6%98%AF%E4%BD%A0%20FastAPI%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%9C%B0%E5%9D%80%0Adata%20%3D%20%22https%3A%2F%2Fyour-api-link.com%2Fadd_tag%3Ftarget_id%3Duser888%26tag_name%3DConference2026%22%0Aqr%20%3D%20qrcode.make(data)%0Aqr.save(%22temporary_qr.png%22)%0A%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E7%94%A8%20FastAPI%20%E6%8E%A5%E6%94%B6%E6%89%AB%E7%A0%81%E8%AF%B7%E6%B1%82%0A%0A%E5%BD%93%E5%88%AB%E4%BA%BA%E7%9A%84%E6%89%8B%E6%9C%BA%E6%89%AB%E6%8F%8F%E8%BF%99%E4%B8%AA%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%97%B6%EF%BC%8C%E4%BB%96%E4%BB%AC%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BC%9A%E8%87%AA%E5%8A%A8%E8%AE%BF%E9%97%AE%E9%82%A3%E4%B8%AA%20URL%E3%80%82%E4%BD%A0%E7%9A%84%20FastAPI%20%E5%90%8E%E7%AB%AF%E9%9C%80%E8%A6%81%E5%A4%84%E7%90%86%E8%BF%99%E4%B8%AA%E8%AF%B7%E6%B1%82%EF%BC%9A%0A%0A%60%60%60python%0Afrom%20fastapi%20import%20FastAPI%2C%20BackgroundTasks%0A%0Aapp%20%3D%20FastAPI()%0A%0A%40app.get(%22%2Fadd_tag%22)%0Aasync%20def%20add_tag(target_id%3A%20str%2C%20tag_name%3A%20str)%3A%0A%20%20%20%20%23%201.%20%E8%BF%99%E9%87%8C%E7%BC%96%E5%86%99%E6%95%B0%E6%8D%AE%E5%BA%93%E9%80%BB%E8%BE%91%EF%BC%9A%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E6%89%BE%E5%88%B0%20target_id%EF%BC%8C%E5%B9%B6%E5%8A%A0%E4%B8%8A%20tag_name%0A%20%20%20%20%23%202.%20%E6%AF%94%E5%A6%82%EF%BC%9Adb.users.update(target_id%2C%20%7B%22%24push%22%3A%20%7B%22tags%22%3A%20tag_name%7D%7D)%0A%20%20%20%20%0A%20%20%20%20return%20%7B%22message%22%3A%20f%22%E6%88%90%E5%8A%9F%E7%BB%99%E7%94%A8%E6%88%B7%20%7Btarget_id%7D%20%E6%B7%BB%E5%8A%A0%E4%BA%86%E6%A0%87%E7%AD%BE%EF%BC%9A%7Btag_name%7D%EF%BC%81%22%7D%0A%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AE%83%E2%80%9C%E7%9F%AD%E6%9A%82%E2%80%9D%E4%B8%94%E2%80%9C%E5%AE%89%E5%85%A8%E2%80%9D%EF%BC%9F%0A%0A%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%9B%B4%E6%8E%A5%E7%94%A8%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E",
+      "username": "wudi1098",
+      "password": "1234567890",
+      "tags": [
+        "工程师",
+        "医生",
+        "老师"
+      ]
+    },
+    "uiONk0jV": {
+      "id": "uiONk0jV",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester_1778900640188",
+      "password": "pass1234",
+      "tags": [
+        "Teacher",
+        "Doctor"
+      ]
+    },
+    "Nwe1o1MA": {
+      "id": "Nwe1o1MA",
+      "name": "测试用户",
+      "photoUrl": "https://images.example.com/avatar.png",
+      "username": "tester_1778900646599",
+      "password": "pass1234",
+      "tags": [
+        "Teacher",
+        "Doctor"
+      ]
+    }
+  },
+  "qrTokens": {
+    "cFtjFAjdH6OQ": {
+      "userId": "8JrSN5Gu",
+      "expiresAt": 1778901047213
+    },
+    "FDDZ0p0McwP3": {
+      "userId": "8JrSN5Gu",
+      "expiresAt": 1778901071925
+    },
+    "AGBTakrsNipr": {
+      "userId": "8TsbLKnb",
+      "expiresAt": 1778901256547
+    },
+    "DeuJrGjlpjxz": {
+      "userId": "8TsbLKnb",
+      "expiresAt": 1778901259353
+    }
+  },
+  "usernames": {
+    "tester": "r6B_tu--",
+    "tester_1778898078034": "peYACNsH",
+    "wudi1096": "rKu1fLfM",
+    "tester_1778898562635": "gPwVDmQL",
+    "tester_1778898774864": "7h4CXRh3",
+    "wudi1097": "8JrSN5Gu",
+    "tester_1778900148704": "S9ttq83k",
+    "tester_1778900154030": "ff53GsiP",
+    "tester_1778900417938": "cPKLbIy5",
+    "tester_1778900426796": "tQNw1-Lu",
+    "wudi1098": "8TsbLKnb",
+    "tester_1778900640188": "uiONk0jV",
+    "tester_1778900646599": "Nwe1o1MA"
+  }
+}

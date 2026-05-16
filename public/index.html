@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile QR Tags</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="brand">Profile QR</div>
+      <button id="scanNav" class="ghost-btn">Scan QR Code</button>
+    </header>
+
+    <main id="app" class="container"></main>
+
+    <template id="authTemplate">
+      <section class="card">
+        <div class="auth-toggle">
+          <button id="showSignup" class="ghost-btn" type="button">Sign Up</button>
+          <button id="showLogin" class="ghost-btn" type="button">Log In</button>
+        </div>
+        <h1 id="authTitle">Create Your Profile</h1>
+        <p id="authHint" class="muted">
+          Sign up to generate a QR Code so others can add fixed tags for you.
+        </p>
+        <form id="signupForm" class="form auth-form">
+          <label>
+            Username
+            <input name="username" type="text" placeholder="Enter username" required />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" placeholder="Enter password" required />
+          </label>
+          <label>
+            Display Name
+            <input name="name" type="text" placeholder="Enter name" required />
+          </label>
+          <label>
+            Profile Photo URL
+            <input name="photoUrl" type="url" placeholder="https://..." required />
+          </label>
+          <button class="primary-btn" type="submit">Sign Up & Enter</button>
+        </form>
+        <form id="loginForm" class="form auth-form hidden">
+          <label>
+            Username
+            <input name="username" type="text" placeholder="Enter username" required />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" placeholder="Enter password" required />
+          </label>
+          <button class="primary-btn" type="submit">Log In</button>
+        </form>
+        <p id="authMessage" class="muted"></p>
+      </section>
+    </template>
+
+    <template id="profileTemplate">
+      <section class="card profile">
+  <h1>My Profile</h1>
+  <button id="switchAccount" class="ghost-btn" type="button">Switch Account</button>
+        <div class="profile-photo" id="profilePhoto"></div>
+        <div class="profile-name" id="profileName"></div>
+        <div class="qr-block">
+          <button id="generateQr" class="primary-btn">Generate QR Code</button>
+          <p id="qrStatus" class="muted"></p>
+          <div class="token-row">
+            <span class="token-label">Token</span>
+            <span id="qrTokenText" class="token-text muted">-</span>
+            <button id="copyToken" class="ghost-btn" type="button">Copy</button>
+          </div>
+          <img id="qrImage" class="qr-image" alt="QR Code" />
+        </div>
+        <div class="tags-block">
+          <h3>My Tags</h3>
+          <div id="profileTags" class="tag-list"></div>
+        </div>
+      </section>
+    </template>
+
+    <template id="scanTemplate">
+      <section class="card">
+  <h1>Scan QR Code</h1>
+  <p class="muted">If you entered via a QR scan, the owner's profile will show here.</p>
+        <div class="scanner-block">
+          <div id="qrScanner" class="scanner-view"></div>
+          <button id="startScanner" class="primary-btn" type="button">Scan by camera</button>
+          <p id="scannerMessage" class="muted"></p>
+        </div>
+        <div id="scanOwner" class="scan-owner"></div>
+        <div id="scanInput" class="scan-input">
+          <label>
+            Enter QR Token
+            <input id="tokenInput" type="text" placeholder="Token from the QR code" />
+          </label>
+          <button id="loadToken" class="primary-btn">Load</button>
+        </div>
+        <div id="tagSelector" class="tag-selector hidden">
+          <h3>Select Tags</h3>
+          <div id="availableTags" class="tag-list"></div>
+          <button id="confirmTags" class="primary-btn">Confirm & Submit</button>
+          <p id="tagMessage" class="muted"></p>
+        </div>
+      </section>
+    </template>
+
+  <script src="/vendor/html5-qrcode.min.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "p2p-profile-qr",
+  "version": "0.1.0",
+  "description": "Profile + QR tag demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+  "html5-qrcode": "^2.3.8",
+    "nanoid": "^5.0.7",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "supertest": "^6.3.4"
+  }
+}
