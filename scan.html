@@ -3,187 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLACKOUT - Scan</title>
+  <title>TrustChain - Scan QR</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- QR scanner library -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 
 <body>
-  <main class="login-page">
-    <section class="login-panel">
-      <h1 class="logo">
-        <span>Scan and</span><span class="green">VOUCH</span>
-      </h1>
+  <main class="page">
+    <section class="card">
+      <h1>Scan QR Code</h1>
 
-      <h2 class="page-title">SCAN other person's QR code</h2>
+      <p id="scanMessage">Point your camera at a TrustChain QR code.</p>
 
-      <div class="field-group">
-        <label for="targetId">PROFILE ID</label>
-        <input id="targetId" type="text" placeholder="Example: 1" />
-      </div>
+      <div id="reader" style="width: 300px;"></div>
 
-      <button id="loadButton" class="signin-button">LOAD</button>
-
-      <div id="profileCard" class="scan-result hidden">
-        <h2 id="scannedName">Unknown</h2>
-
-        <p>
-          <strong>Role:</strong>
-          <span id="scannedRole">Unknown</span>
-        </p>
-
-
-        <p>
-          <strong>Vouches:</strong>
-          <span id="scannedVouches">0</span>
-        </p>
-
-        <button id="vouchButton" class="vouch-button">
-          I KNOW THIS PERSON
-        </button>
-      </div>
-
-      <button id="backButton" class="secondary-button">BACK TO PROFILE</button>
-
-      <p id="message"></p>
+      <button id="backToProfile" class="secondary-button">Back to Profile</button>
     </section>
   </main>
 
   <script>
-    // Change this to true when backend is ready
-    const USE_BACKEND = false;
-    const API_BASE = "http://localhost:8000";
+    const scanMessage = document.getElementById("scanMessage");
 
-    const targetIdInput = document.getElementById("targetId");
-    const loadButton = document.getElementById("loadButton");
-    const vouchButton = document.getElementById("vouchButton");
-    const backButton = document.getElementById("backButton");
-    const message = document.getElementById("message");
+    const html5QrCode = new Html5Qrcode("reader");
 
-    const profileCard = document.getElementById("profileCard");
-    const scannedName = document.getElementById("scannedName");
-    const scannedRole = document.getElementById("scannedRole");
-    const scannedScore = document.getElementById("scannedScore");
-    const scannedVouches = document.getElementById("scannedVouches");
+    function onScanSuccess(decodedText) {
+      scanMessage.textContent = "QR code scanned successfully!";
 
-    let currentScannedUserId = null;
-    let currentScore = 0;
-    let currentVouchCount = 0;
-
-    loadButton.addEventListener("click", async () => {
-      const targetId = targetIdInput.value.trim();
-
-      if (!targetId) {
-        message.textContent = "Please enter a profile ID.";
-        return;
-      }
-
-      currentScannedUserId = targetId;
-      message.textContent = "";
-
-      if (!USE_BACKEND) {
-        // Mock version before backend is ready
-        scannedName.textContent = "Mock Survivor #" + targetId;
-        scannedRole.textContent = "Doctor";
-        currentScore = 30;
-        currentVouchCount = 3;
-
-        scannedScore.textContent = currentScore;
-        scannedVouches.textContent = currentVouchCount;
-
-        profileCard.classList.remove("hidden");
-        return;
-      }
-
-      try {
-        const response = await fetch(`${API_BASE}/users/${targetId}`);
-
-        if (!response.ok) {
-          throw new Error("User not found");
+      html5QrCode.stop().then(() => {
+        // If QR contains something like profile.html?id=1
+        if (decodedText.includes("profile.html?id=")) {
+          window.location.href = decodedText;
+        } else {
+          scanMessage.textContent = "Invalid TrustChain QR code.";
         }
+      }).catch((error) => {
+        console.error("Failed to stop scanner:", error);
+      });
+    }
 
-        const user = await response.json();
+    function onScanFailure(error) {
+      // This runs constantly while scanning, so don't console.log every time.
+    }
 
-        scannedName.textContent = user.username;
-        scannedRole.textContent = user.role;
-        currentScore = user.confidence_score || 0;
-        scannedScore.textContent = currentScore;
-
-        const vouchResponse = await fetch(`${API_BASE}/users/${targetId}/vouches`);
-
-        if (vouchResponse.ok) {
-          const vouchData = await vouchResponse.json();
-          currentVouchCount = vouchData.vouches.length;
-          scannedVouches.textContent = currentVouchCount;
-        }
-
-        profileCard.classList.remove("hidden");
-      } catch (error) {
-        console.error(error);
-        message.textContent = "Could not load this profile.";
-      }
-    });
-
-    vouchButton.addEventListener("click", async () => {
-      const voucherId = localStorage.getItem("currentUserId");
-
-      if (!voucherId) {
-        message.textContent = "No current user found. Please sign in first.";
-        return;
-      }
-
-      if (!currentScannedUserId) {
-        message.textContent = "Please load a profile first.";
-        return;
-      }
-
-      if (voucherId === currentScannedUserId) {
-        message.textContent = "You cannot vouch for yourself.";
-        return;
-      }
-
-      if (!USE_BACKEND) {
-        // Mock vouch update
-        currentScore += 10;
-        currentVouchCount += 1;
-
-        scannedScore.textContent = currentScore;
-        scannedVouches.textContent = currentVouchCount;
-
-        message.textContent = "Vouch added successfully.";
-        return;
-      }
-
-      try {
-        const response = await fetch(`${API_BASE}/vouch`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
+    Html5Qrcode.getCameras().then((cameras) => {
+      if (cameras && cameras.length > 0) {
+        html5QrCode.start(
+          { facingMode: "environment" },
+          {
+            fps: 10,
+            qrbox: {
+              width: 250,
+              height: 250
+            }
           },
-          body: JSON.stringify({
-            voucher_id: Number(voucherId),
-            vouchee_id: Number(currentScannedUserId),
-            signature: "mock_signature"
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error("Vouch failed");
-        }
-
-        const result = await response.json();
-
-        scannedScore.textContent = result.new_confidence_score;
-        currentVouchCount += 1;
-        scannedVouches.textContent = currentVouchCount;
-
-        message.textContent = "Vouch added successfully.";
-      } catch (error) {
-        console.error(error);
-        message.textContent = "Could not vouch for this person.";
+          onScanSuccess,
+          onScanFailure
+        );
+      } else {
+        scanMessage.textContent = "No camera found.";
       }
+    }).catch((error) => {
+      console.error(error);
+      scanMessage.textContent = "Camera access failed. Please allow camera permission.";
     });
 
-    backButton.addEventListener("click", () => {
+    document.getElementById("backToProfile").addEventListener("click", () => {
       const currentUserId = localStorage.getItem("currentUserId") || "1";
       window.location.href = `profile.html?id=${currentUserId}`;
     });
