@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>TRUSTCHAIN - Sign Up</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 
-<body>
+<body data-page="signup">
   <main class="login-page">
     <section class="login-panel">
       <h1 class="logo">
@@ -18,46 +25,42 @@
 
       <form id="signupForm">
         <div class="field-group">
-          <label for="username">USERNAME</label>
-          <input id="username" type="text" autocomplete="username" required />
+          <label for="signupUsername">USERNAME</label>
+          <input
+            id="signupUsername"
+            type="text"
+            autocomplete="username"
+            required
+          />
         </div>
 
         <div class="field-group">
-          <label for="password">PASSWORD</label>
-          <input id="password" type="password" autocomplete="new-password" required />
+          <label for="signupPassword">PASSWORD</label>
+          <input
+            id="signupPassword"
+            type="password"
+            autocomplete="new-password"
+            required
+          />
         </div>
 
-        <button type="submit" class="login-btn">SIGN UP</button>
+        <div class="field-group">
+          <label for="signupRole">ROLE</label>
+          <input
+            id="signupRole"
+            type="text"
+            placeholder="Citizen"
+            autocomplete="off"
+          />
+        </div>
+
+        <button type="submit" class="signin-button">SIGN UP</button>
 
         <a href="index.html" class="create-link">already have an account?</a>
+
+        <p id="message"></p>
       </form>
     </section>
   </main>
-
-  <script>
-    const signupForm = document.getElementById("signupForm");
-
-    signupForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value;
-
-      if (!username || !password) {
-        alert("Please enter username and password.");
-        return;
-      }
-
-      const user = {
-        username: username,
-        password: password
-      };
-
-      localStorage.setItem("trustchainUser", JSON.stringify(user));
-
-      alert("Account created successfully!");
-      window.location.href = "index.html";
-    });
-  </script>
 </body>
 </html>
