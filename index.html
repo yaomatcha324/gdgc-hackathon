@@ -59,15 +59,16 @@
 
       const savedUser = JSON.parse(localStorage.getItem("trustchainUser"));
 
-      if (!savedUser) {
-        message.textContent = "No account found. Please sign up first.";
-        return;
-      }
+      const isDemoLogin = password === "blackout";
+      const isSignedUpUser =
+        savedUser &&
+        username === savedUser.username &&
+        password === savedUser.password;
 
-      if (username !== savedUser.username || password !== savedUser.password) {
-        message.textContent = "Wrong username or password.";
-        return;
-      }
+  if (!isDemoLogin && !isSignedUpUser) {
+    message.textContent = "Wrong username or password.";
+    return;
+}
 
       localStorage.setItem("currentUserId", "1");
       localStorage.setItem("currentUsername", username);
