@@ -19,7 +19,7 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
-  font-family: "Gloria Hallelujah", cursive;
+  font-family: "Orbitron", sans-serif;
 }
 
 /* ---------- login / signup ---------- */
