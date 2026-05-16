@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TRUSTCHAIN - Sign In</title>
+  <title>TRUSTCHAIN - Sign Up</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,67 +14,49 @@
         <span>TRUST</span><span class="green">CHAIN</span>
       </h1>
 
-      <form id="loginForm">
+      <h2 class="page-title">Create Account</h2>
+
+      <form id="signupForm">
         <div class="field-group">
           <label for="username">USERNAME</label>
-          <input id="username" type="text" autocomplete="username" />
+          <input id="username" type="text" autocomplete="username" required />
         </div>
 
-        <div class="field-group password-row">
-          <div class="password-label-line">
-            <label for="password">PASSWORD</label>
-            <a href="#" class="small-link">forget password?</a>
-          </div>
-          <input id="password" type="password" autocomplete="current-password" />
+        <div class="field-group">
+          <label for="password">PASSWORD</label>
+          <input id="password" type="password" autocomplete="new-password" required />
         </div>
 
-        <a href="signup.html" class="create-link">create new account?</a>
+        <button type="submit" class="login-btn">SIGN UP</button>
 
-        <button type="submit" class="signin-button">SIGN IN</button>
-
-        <p id="message"></p>
+        <a href="index.html" class="create-link">already have an account?</a>
       </form>
     </section>
   </main>
 
   <script>
-    const loginForm = document.getElementById("loginForm");
-    const message = document.getElementById("message");
+    const signupForm = document.getElementById("signupForm");
 
-    loginForm.addEventListener("submit", (event) => {
+    signupForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
       const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
+      const password = document.getElementById("password").value;
 
-      if (!username) {
-        message.textContent = "Please enter your username.";
+      if (!username || !password) {
+        alert("Please enter username and password.");
         return;
       }
 
-      if (!password) {
-        message.textContent = "Please enter your password.";
-        return;
-      }
+      const user = {
+        username: username,
+        password: password
+      };
 
-      const savedUser = JSON.parse(localStorage.getItem("trustchainUser"));
+      localStorage.setItem("trustchainUser", JSON.stringify(user));
 
-      const isDemoLogin = password === "blackout";
-      const isSignedUpUser =
-        savedUser &&
-        username === savedUser.username &&
-        password === savedUser.password;
-
-  if (!isDemoLogin && !isSignedUpUser) {
-    message.textContent = "Wrong username or password.";
-    return;
-}
-
-      localStorage.setItem("currentUserId", "1");
-      localStorage.setItem("currentUsername", username);
-      localStorage.setItem("currentRole", "Citizen");
-
-      window.location.href = "profile.html?id=1";
+      alert("Account created successfully!");
+      window.location.href = "index.html";
     });
   </script>
 </body>
