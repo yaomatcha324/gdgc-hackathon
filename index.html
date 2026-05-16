@@ -3,71 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrustChain - Sign Up</title>
+  <title>BLACKOUT - Sign In</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <main class="page">
-    <section class="card">
-      <h1>Join TrustChain</h1>
-      <p>Create your post-impact identity.</p>
+  <main class="login-page">
+    <section class="login-panel">
+      <h1 class="logo">
+        <span>BLACK</span><span class="green">OUT</span>
+      </h1>
 
-      <label for="username">Name</label>
-      <input id="username" type="text" placeholder="Enter your name" />
+      <form id="loginForm">
+        <div class="field-group">
+          <label for="username">USERNAME <span>or</span> ID</label>
+          <input id="username" type="text" autocomplete="username" />
+        </div>
 
-      <label for="use">Role</label>
-      <select id="use">
-        <option value="Personal">Peronal</option>
-        <option value="Professional">Professional</option>
-      </select>
+        <div class="field-group password-row">
+          <div class="password-label-line">
+            <label for="password">PASSWORD</label>
+            <a href="#" class="small-link">forget password?</a>
+          </div>
+          <input id="password" type="password" autocomplete="current-password" />
+        </div>
 
-      <button id="joinButton">Join</button>
+        <a href="#" class="create-link">create new account?</a>
 
-      <p id="message"></p>
+        <button type="submit" class="signin-button">SIGN IN</button>
+
+        <p id="message"></p>
+      </form>
     </section>
   </main>
 
   <script>
-    const API_BASE = "http://localhost:8000";
-
-    const joinButton = document.getElementById("joinButton");
+    const loginForm = document.getElementById("loginForm");
     const message = document.getElementById("message");
 
-    joinButton.addEventListener("click", async () => {
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
       const username = document.getElementById("username").value.trim();
-      const role = document.getElementById("role").value;
+      const password = document.getElementById("password").value.trim();
 
       if (!username) {
-        message.textContent = "Please enter your name.";
+        message.textContent = "Please enter your username or ID.";
         return;
       }
 
-      try {
-        const response = await fetch(`${API_BASE}/signup`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            username: username,
-            role: role,
-            public_key: "mock_public_key"
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error("Signup failed");
-        }
-
-        const user = await response.json();
-
-        localStorage.setItem("currentUserId", user.id);
-
-        window.location.href = `profile.html?id=${user.id}`;
-      } catch (error) {
-        console.error(error);
-        message.textContent = "Could not join TrustChain.";
+      if (!password) {
+        message.textContent = "Please enter your password.";
+        return;
       }
+
+      // Temporary mock login before backend auth is ready
+      localStorage.setItem("currentUserId", "1");
+      localStorage.setItem("currentUsername", username);
+      localStorage.setItem("currentRole", "Citizen");
+
+      window.location.href = "profile.html?id=1";
     });
   </script>
 </body>
